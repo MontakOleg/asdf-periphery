@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for periphery.
-GH_REPO="https://github.com/MontakOleg/periphery"
+GH_REPO="https://github.com/peripheryapp/periphery"
 TOOL_NAME="periphery"
 TOOL_TEST="periphery version"
 
@@ -41,8 +41,7 @@ download_release() {
 	version="$1"
 	filename="$2"
 
-	# TODO: Adapt the release URL convention for periphery
-	url="$GH_REPO/archive/v${version}.tar.gz"
+	url="$GH_REPO/releases/download/${version}/periphery-${version}.zip"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
